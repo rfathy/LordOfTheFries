@@ -1,0 +1,49 @@
+.full-width {
+    width: 95%
+}
+
+.half-width {
+    width: 45%
+}
+
+.form-size {
+    width: 75%
+}
+
+.divi{
+	align-self: flex-start;
+	mat-card{
+		line-height: 20px;
+	    font-size: 14px;
+	    opacity: 0.8;
+	}
+	.contactBtn{
+		text-align: center;
+		a,a:link,a:active,a:visited,a:hover{
+			margin: 20px 10px 0 10px;
+			color: #acaa6d;
+		}
+	}
+	.ng-valid{
+		.mat-button{
+			background: #acaa6d;
+			font-weight: bold;
+			color: #000;
+		}
+	}
+	.ng-invalid{
+		.mat-button{
+		    background: #e8e7b9;
+		    font-weight: bold;
+		    color: #c3c286;
+		}
+	}
+	form{
+		table{
+			td:first-child{
+				width:84%;
+			}
+		}
+	}
+}
+

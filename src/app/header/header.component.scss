@@ -1,0 +1,48 @@
+@import "../../scss/var";
+
+header{
+	mat-toolbar{
+		background: none;
+		display: flex;
+		background-image: url("/assets/images/pattarn.png");
+		background-repeat: repeat;
+		color: #fff;
+		height: 75px;
+	    box-shadow: 1px 1px 17px 0px #000;
+	    position: fixed;
+	    z-index: 10;		
+		-webkit-transition: all ease-out .5s;
+		-moz-transition: all ease-out .5s;
+		-o-transition: all ease-out .5s;
+		transition: all ease-out .5s;
+		&.active{
+			
+		}
+		.logo{
+	        img{
+	        	width: 46%;
+			    margin-top: 5px;
+	        }
+		}
+		.hNav{
+			flex: 2!important;
+			.mat-button, .mat-flat-button, .mat-icon-button, .mat-stroked-button{
+				color: $white-col;
+				margin-left: 30px;
+				border-radius: 4px;
+				background-image: url("/assets/images/btn.png");
+				background-repeat: repeat;
+			}
+			.active {
+			    background: $background-moredark;
+			    font-weight: bold;
+			    color: $black-col;
+			}
+		}
+	}
+	.login{
+		background-image: url("/assets/images/btn.png");
+		background-repeat: repeat;		
+    	border-radius: 4px;
+	}
+}

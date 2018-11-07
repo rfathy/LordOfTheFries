@@ -1,0 +1,25 @@
+<app-banner-inner></app-banner-inner>
+<div class="container btns" fxLayout="row" fxLayoutGap="10px">
+	<button fxFlex="10" mat-button routerLinkActive="active" type="button" (click)="onClick($event)">All</button>
+	<button fxFlex="10" mat-button type="button" datafilter="Mains" (click)="onClick($event)">Mains</button>
+	<button fxFlex="10" mat-button type="button" datafilter="Appetizer" (click)="onClick($event)">Appetizer</button>
+	<button fxFlex="10" mat-button type="button" datafilter="Dessert" (click)="onClick($event)">Dessert</button>
+</div>
+
+<div class="container padded" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column"
+    fxLayoutAlign.gt-md="space-around center" fxLayoutGap="50px" *ngIf="dishes">
+    <div class="menuDiv mix {{dish.category | titlecase}}" *ngFor="let dish of dishes" [routerLink]="['/dish-detail', dish.id]" fxFlex="45">
+        <div class="menuImg">
+            <img src={{dish.image}} alt={{dish.name}}>
+        </div>
+        <div class="info">
+            <p>{{dish.name}}</p>
+            <label></label>
+            <span>${{dish.price}}</span>
+            <p>{{dish.description}}</p>
+        </div>
+    </div>
+</div>
+<div class="loading" [hidden]="dishes">
+    <img src="assets/images/load.gif"> <p>Loading . . . Please Wait</p>
+</div>

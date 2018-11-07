@@ -1,0 +1,15 @@
+// some variables
+$white-col: #fff;
+$black-col: #000;
+$lt-gray: #ddd;
+$background-dark: #c2c087;
+$background-light: #e1dfab;
+$background-pale: #e1e9c4;
+$background-moredark: #acaa6d;
+
+
+// some mixins
+@mixin zero-margin($pad-up-down, $pad-left-right) {
+    margin: 0px auto;
+    padding: $pad-up-down $pad-left-right;
+}

@@ -1,0 +1,27 @@
+@import "../../scss/var";
+
+.bannerInner {	
+	background-image: url("/assets/images/fall-holiday-table-decoration-party-setting-for-PNUGK5R.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 0 25%;
+	@include zero-margin(30px,30px);
+	color:floralwhite;
+	min-height: 150px;
+	div{
+		text-align: center;
+		h1{
+			font-size: 42px;
+			text-shadow: 0px 3px 4px #000;
+			margin-top: 60px;
+    		margin-bottom: -10px;
+		}
+		p{
+			font-size: 18px;
+		    font-style: italic;
+		    text-shadow: 0px 2px 2px #000;
+		    color: $white-col !important;
+		}
+	}
+}
+

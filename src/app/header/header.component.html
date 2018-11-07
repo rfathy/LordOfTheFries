@@ -1,0 +1,13 @@
+<header>
+    <mat-toolbar fxLayout="row" color="" fxShow=”true” fxHide.lt-md=”true” fxLayoutGap="10px">
+        <span class="logo" fxFlex><img src="assets/images/logo.png"></span>
+        <div class="hNav" fxFlex>
+            <a mat-button routerLink="/home" routerLinkActive="active">Home</a>
+            <a mat-button routerLink="/about" routerLinkActive="active">About</a>
+            <a mat-button routerLink="/menu" routerLinkActive="active">Menu</a>
+            <a mat-button routerLink="/contact" routerLinkActive="active">Contact</a>
+            <span class="flex-spacer"></span>
+        </div>
+         <a class="login" mat-button (click)="openLoginForm()">Login</a>
+    </mat-toolbar>
+</header>

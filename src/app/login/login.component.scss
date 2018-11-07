@@ -1,0 +1,12 @@
+mat-dialog-content{
+	margin:0;
+	.mat-form-field{
+		display: block;
+		.mat-form-field-label{
+			color: #fff;
+		}
+	}
+}
+.mat-dialog-actions{
+	padding:12px;
+}

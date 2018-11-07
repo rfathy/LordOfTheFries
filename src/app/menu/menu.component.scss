@@ -1,0 +1,67 @@
+@import "../../scss/var";
+
+.btns{
+	display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 35px;
+    button{
+    	flex: 1;
+	    background-color: $background-light;
+	    color: #868451;
+    }
+}
+.padded{
+    padding: 50px 50px 70px 50px;  
+    text-align: center;  
+    flex-wrap: wrap;
+	.menuDiv{
+	    cursor: pointer;
+	    align-self: flex-start;
+    	margin-bottom: 40px;
+    	outline: none;
+	    margin-right: 50px;
+		.menuImg{
+			overflow: hidden;
+			max-height: 250px;
+			img{
+			    width: 100%;
+			}
+		}
+		.info{
+			display: flex;
+    		flex-wrap: wrap;
+    		text-align: left;
+			span{
+			    color: $background-moredark;
+		        margin-top: 13px;
+				font-family: 'Poppins', sans-serif;
+				font-size: 18px;
+			}
+			label{
+			    border-bottom: 1px dashed $background-moredark;
+			    margin-left: 10px;
+			    flex: 2;
+			    height: 33px;
+			    margin-right: 15px;
+			    opacity: 0.3;
+			}
+			p:last-child{
+			    margin-top: 0;
+			    font-size: 14px;
+			    opacity: 0.6;
+			}
+		}
+		&.hide{
+			display:none;
+			opacity: 0;
+			transition: opacity 1s;
+			width: 0;
+			margin:0;
+		}
+	}
+}

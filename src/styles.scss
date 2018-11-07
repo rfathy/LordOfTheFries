@@ -1,0 +1,112 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import url('https://fonts.googleapis.com/css?family=Arizonia&subset=latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Poppins:300i,400,400i,500,500i,700,700i,800,800i,900,900i');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300i,400,400i,600,600i,700,700i,800,800i');
+@import "scss/var";
+
+
+
+// some basic resets 
+
+body { 
+	padding: 0; 
+	margin: 0; 
+	font-family: 'Open Sans', sans-serif;
+	.container {
+		margin: 20px;
+		display:flex;
+	}
+	*{
+		font-family: 'Open Sans', sans-serif;
+	}
+	p{
+		color: #505050;
+	}
+	h1, h2, h3, h4, h5, h6{
+		font-family: 'Poppins', sans-serif;
+		color: $background-moredark;
+	}
+	.jumbotron, .bannerInner{
+		h1, h2, h3, h4, h5, h6{
+			color: $white-col;
+		}
+	}
+	a,
+	a:link,
+	a:active,
+	a:visited,
+	a:hover{
+		color: $background-moredark;
+	}
+	.loading{
+		text-align: center;
+    	opacity: 0.5;
+    	color: #acaa6d;
+		img{
+		    width: auto !important;
+		}
+	}
+}
+
+/*Login*/
+.cdk-overlay-dark-backdrop{
+	opacity: 0.8!important;
+    background: $black-col;
+}
+
+.dialogOverride.cdk-overlay-pane{
+	.mat-dialog-container{
+		background-color: $white-col;
+        box-shadow: 0px 0px 7px 2px #000;
+		color: #333212;
+	    width: 450px;
+    	height: 300px;
+    	border-radius: 4px;
+    	padding: 0 0 24px 0;
+    	.mat-toolbar.mat-primary{
+		    background: transparent;
+		    button{
+		        font-size: 13px;
+			    text-transform: uppercase;
+			    font-weight: bolder;
+			    font-family: 'Poppins', sans-serif;
+			    background: none;
+			    border: none;
+			    color: #545454;
+			    text-shadow: 0px 1px 2px #ffffff;
+			    outline: none;
+		    }
+    	}
+    	.mat-toolbar-row, 
+    	.mat-toolbar-single-row{
+    		height: 40px;
+    	}
+    	.mat-checkbox-inner-container{
+    		width: 15px;
+    		height: 15px;
+    	}
+	}
+}
+
+
+// header and footer
+
+
+@mixin zero-margin($pad-up-down, $pad-left-right) {
+    margin: 0px auto;
+    padding: $pad-up-down $pad-left-right;
+}
+
+.flex-spacer {
+  flex: 1 1 auto;
+}
+
+
+// contact us form
+
+.mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+    background-color: rgb(228, 227, 181) !important;
+}
+.mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+    background-color: #acaa6d !important;
+}

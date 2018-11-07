@@ -1,0 +1,41 @@
+.padded{
+    padding: 20px 80px 30px 80px;
+    .padded{
+    	padding: 20px 0;
+    }
+    h2{
+    	text-align: center;
+	    text-transform: uppercase;
+	    margin-bottom: 50px;
+	    margin-top: 50px;
+    }
+    .history{
+    	place-content: center space-around;
+    	align-items: center;
+    }
+    img{
+    	width: calc(100% + 20px);
+		margin: 0 -24px -5px -24px;	
+    }
+    .leader{
+    	img{
+    		width: calc(100% + 20px);
+			margin: 0 -24px -5px -24px;	
+    	}
+    	.label{
+    		background: #deddaf;
+		    width: calc(100% + 20px);
+		    margin: 0 -24px -5px -24px;
+		    text-align: center;
+		    padding: 10px 0;
+		    label{
+		    	font-weight: bold;
+    			letter-spacing: 0;
+		    }
+		    p{
+	    	    margin: 0;
+    			letter-spacing: 0;
+		    }
+    	}
+    }
+}
