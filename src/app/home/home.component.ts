@@ -7,11 +7,17 @@ import { PromotionService } from '../services/promotion.service';
 import { Leader } from '../shared/leader';
 import { LeaderService } from '../services/leader.service';
 
+import { flyDown, visibility, flyUp } from '../animations/app.animation';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  //trigger name visibilty takes state with style and transformation
+  animations: [
+    flyDown(),
+    flyUp()
+  ]
 })
 export class HomeComponent implements OnInit {
 

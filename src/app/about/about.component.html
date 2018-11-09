@@ -1,6 +1,6 @@
 <app-banner-inner></app-banner-inner>
 <div class="container padded" fxLayout="column" fxLayout.sm="column" fxLayout.xs="column"
-    fxLayoutAlign.gt-md="space-around center" fxLayoutGap="30px">
+    fxLayoutAlign.gt-md="space-around center" fxLayoutGap="30px" [@flyIn]>
 
   <div fxFlex>
     <h2 fxLayout="column">Our History</h2>
@@ -20,7 +20,7 @@
     <h2>Corporate Leadership</h2>
     <div class="container padded" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column"
     fxLayoutAlign.gt-md="space-around center" fxLayoutGap="50px">
-      <div *ngFor="let leader of leaders" class="leader" fxFlex>
+      <div *ngFor="let leader of leaders" class="leader" fxFlex [@flyDown]>
         <img src="{{leader.image}}">
         <div class="label">
           <label>{{leader.abbr | uppercase}}</label>
@@ -29,9 +29,9 @@
       </div>
 
 
-    <div class="loading" [hidden]="leaders">
+      <div class="loading" [hidden]="leaders">
         <img src="assets/images/load.gif"> <p>Loading . . . Please Wait</p>
-    </div> 
+      </div> 
     </div>    
   </div>
 </div>

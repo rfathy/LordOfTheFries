@@ -1,5 +1,5 @@
 <app-banner-inner></app-banner-inner>
-<div class="container btns" fxLayout="row" fxLayoutGap="10px">
+<div class="container btns" fxLayout="row" fxLayoutGap="10px" [@flyIn]>
 	<button fxFlex="10" mat-button routerLinkActive="active" type="button" (click)="onClick($event)">All</button>
 	<button fxFlex="10" mat-button type="button" datafilter="Mains" (click)="onClick($event)">Mains</button>
 	<button fxFlex="10" mat-button type="button" datafilter="Appetizer" (click)="onClick($event)">Appetizer</button>
@@ -8,7 +8,7 @@
 
 <div class="container padded" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column"
     fxLayoutAlign.gt-md="space-around center" fxLayoutGap="50px" *ngIf="dishes">
-    <div class="menuDiv mix {{dish.category | titlecase}}" *ngFor="let dish of dishes" [routerLink]="['/dish-detail', dish.id]" fxFlex="45">
+    <div class="menuDiv mix {{dish.category | titlecase}}" *ngFor="let dish of dishes" [routerLink]="['/dish-detail', dish.id]" fxFlex="45" [@flyDown]>
         <div class="menuImg">
             <img src={{dish.image}} alt={{dish.name}}>
         </div>
@@ -20,6 +20,6 @@
         </div>
     </div>
 </div>
-<div class="loading" [hidden]="dishes">
+<div class="loading" [hidden]="dishes" [@flyIn]>
     <img src="assets/images/load.gif"> <p>Loading . . . Please Wait</p>
 </div>

@@ -7,16 +7,29 @@ import { Params, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { switchMap } from 'rxjs/operators';
 
+
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Comment } from '../shared/comments';
 import 'hammerjs';
 import {MatSliderModule} from '@angular/material/slider';
 
+import { visibility, flyIn } from '../animations/app.animation';
+
 @Component({
   selector: 'app-dish-detail',
   templateUrl: './dish-detail.component.html',
-  styleUrls: ['./dish-detail.component.scss']
+  styleUrls: ['./dish-detail.component.scss'],
+  host: {
+  	'[@flyInOu]': 'true',
+  	'style': 'block'
+  },
+  //trigger name visibilty takes state with style and transformation
+  animations: [
+  	visibility(),
+  	flyIn(),
+  ]
 })
+
 export class DishDetailComponent implements OnInit {
 
 	// for form reset
@@ -44,6 +57,8 @@ export class DishDetailComponent implements OnInit {
 	dishIds: number[];
 	prev: number;
 	next: number;
+	visibility = 'shown';
+	flyIn: 'in';
 
 	constructor(
 		private dishservice: DishService,
@@ -57,10 +72,14 @@ export class DishDetailComponent implements OnInit {
 	//when dish component is initialized
 	ngOnInit() {
 		this.dishservice.getDishIds().subscribe(dishIds => this.dishIds = dishIds);
-		this.route.params.pipe(switchMap((params: Params) => this.dishservice.getDish(+params['id'])))
+		this.route.params.pipe(switchMap((params: Params) => {
+				this.visibility = 'hidden';
+				return this.dishservice.getDish(+params['id']);
+			}))
 			.subscribe(dish => {
 				this.dish = dish;
 				this.setPrevNext(dish.id);
+				this.visibility = 'shown';
 			});
 	}
 

@@ -21,7 +21,7 @@ export class DishService {
   }
 
   getDish(id: number): Observable<Dish> {
-    return of(DISHES.filter((dish)=> (dish.id === id))[0]);
+    return of(DISHES.filter((dish)=> (dish.id === id))[0]).pipe(delay(500));
   }
 
   getFeaturedDish(): Observable<Dish> {
@@ -29,7 +29,7 @@ export class DishService {
   }
 
   getDishIds(): Observable<number[] | any>{ // : Observable<number[]> ===> returning an observable of array
-    return of(DISHES.map(dish => dish.id ));
+    return of(DISHES.map(dish => dish.id )).pipe(delay(500));
   }
 
 }

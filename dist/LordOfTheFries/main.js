@@ -30,7 +30,7 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-banner-inner></app-banner-inner>\n<div class=\"container padded\" fxLayout=\"column\" fxLayout.sm=\"column\" fxLayout.xs=\"column\"\n    fxLayoutAlign.gt-md=\"space-around center\" fxLayoutGap=\"30px\">\n\n  <div fxFlex>\n    <h2 fxLayout=\"column\">Our History</h2>\n    <div class=\"history\" fxLayout=\"column\" fxLayout.gt-sm=\"row\">        \n      <div fxFlex=\"30\">\n        <img src=\"assets/images/sweetshop.jpg\">\n      </div>\n      <div fxFlex=\"60\">\n        <p>Started in 2010, Ristorante con Fusion quickly established itself as a culinary icon par excellence in Hong Kong. With its unique brand of world fusion cuisine that can be found nowhere else, it enjoys patronage from the A-list clientele in Hong Kong.  </p>\n        <p>Featuring four of the best three-star Michelin chefs in the world, you never know what will arrive on your plate the next time you visit us.</p>\n        <p>The restaurant traces its humble beginnings to <em>The Frying Pan</em>, a successful chain started by our CEO, Mr. Peter Pan, that featured for the first time the world's best cuisines in a pan.</p>\n      </div>\n    </div>\n  </div>\n  \n  <div fxFlex>\n    <h2>Corporate Leadership</h2>\n    <div class=\"container padded\" fxLayout=\"row\" fxLayout.sm=\"column\" fxLayout.xs=\"column\"\n    fxLayoutAlign.gt-md=\"space-around center\" fxLayoutGap=\"50px\">\n      <div *ngFor=\"let leader of leaders\" class=\"leader\" fxFlex>\n        <img src=\"{{leader.image}}\">\n        <div class=\"label\">\n          <label>{{leader.abbr | uppercase}}</label>\n          <p>{{leader.name}} </p>\n        </div>\n      </div>\n\n\n    <div class=\"loading\" [hidden]=\"leaders\">\n        <img src=\"assets/images/load.gif\"> <p>Loading . . . Please Wait</p>\n    </div> \n    </div>    \n  </div>\n</div>"
+module.exports = "<app-banner-inner></app-banner-inner>\n<div class=\"container padded\" fxLayout=\"column\" fxLayout.sm=\"column\" fxLayout.xs=\"column\"\n    fxLayoutAlign.gt-md=\"space-around center\" fxLayoutGap=\"30px\" [@flyIn]>\n\n  <div fxFlex>\n    <h2 fxLayout=\"column\">Our History</h2>\n    <div class=\"history\" fxLayout=\"column\" fxLayout.gt-sm=\"row\">        \n      <div fxFlex=\"30\">\n        <img src=\"assets/images/sweetshop.jpg\">\n      </div>\n      <div fxFlex=\"60\">\n        <p>Started in 2010, Ristorante con Fusion quickly established itself as a culinary icon par excellence in Hong Kong. With its unique brand of world fusion cuisine that can be found nowhere else, it enjoys patronage from the A-list clientele in Hong Kong.  </p>\n        <p>Featuring four of the best three-star Michelin chefs in the world, you never know what will arrive on your plate the next time you visit us.</p>\n        <p>The restaurant traces its humble beginnings to <em>The Frying Pan</em>, a successful chain started by our CEO, Mr. Peter Pan, that featured for the first time the world's best cuisines in a pan.</p>\n      </div>\n    </div>\n  </div>\n  \n  <div fxFlex>\n    <h2>Corporate Leadership</h2>\n    <div class=\"container padded\" fxLayout=\"row\" fxLayout.sm=\"column\" fxLayout.xs=\"column\"\n    fxLayoutAlign.gt-md=\"space-around center\" fxLayoutGap=\"50px\">\n      <div *ngFor=\"let leader of leaders\" class=\"leader\" fxFlex [@flyDown]>\n        <img src=\"{{leader.image}}\">\n        <div class=\"label\">\n          <label>{{leader.abbr | uppercase}}</label>\n          <p>{{leader.name}} </p>\n        </div>\n      </div>\n\n\n      <div class=\"loading\" [hidden]=\"leaders\">\n        <img src=\"assets/images/load.gif\"> <p>Loading . . . Please Wait</p>\n      </div> \n    </div>    \n  </div>\n</div>"
 
 /***/ }),
 
@@ -57,6 +57,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AboutComponent", function() { return AboutComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _services_leader_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/leader.service */ "./src/app/services/leader.service.ts");
+/* harmony import */ var _animations_app_animation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../animations/app.animation */ "./src/app/animations/app.animation.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -66,6 +67,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 var AboutComponent = /** @class */ (function () {
@@ -80,13 +82,93 @@ var AboutComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-about',
             template: __webpack_require__(/*! ./about.component.html */ "./src/app/about/about.component.html"),
-            styles: [__webpack_require__(/*! ./about.component.scss */ "./src/app/about/about.component.scss")]
+            styles: [__webpack_require__(/*! ./about.component.scss */ "./src/app/about/about.component.scss")],
+            //trigger name visibilty takes state with style and transformation
+            animations: [
+                Object(_animations_app_animation__WEBPACK_IMPORTED_MODULE_2__["flyIn"])(),
+                Object(_animations_app_animation__WEBPACK_IMPORTED_MODULE_2__["flyDown"])()
+            ]
         }),
         __metadata("design:paramtypes", [_services_leader_service__WEBPACK_IMPORTED_MODULE_1__["LeaderService"]])
     ], AboutComponent);
     return AboutComponent;
 }());
 
+
+
+/***/ }),
+
+/***/ "./src/app/animations/app.animation.ts":
+/*!*********************************************!*\
+  !*** ./src/app/animations/app.animation.ts ***!
+  \*********************************************/
+/*! exports provided: visibility, flyIn, flyDown, flyUp */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "visibility", function() { return visibility; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "flyIn", function() { return flyIn; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "flyDown", function() { return flyDown; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "flyUp", function() { return flyUp; });
+/* harmony import */ var _angular_animations__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/animations */ "./node_modules/@angular/animations/fesm5/animations.js");
+
+function visibility() {
+    return Object(_angular_animations__WEBPACK_IMPORTED_MODULE_0__["trigger"])('visibility', [
+        Object(_angular_animations__WEBPACK_IMPORTED_MODULE_0__["state"])('shown', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_0__["style"])({
+            opacity: 1,
+        })),
+        Object(_angular_animations__WEBPACK_IMPORTED_MODULE_0__["state"])('hidden', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_0__["style"])({
+            opacity: 0,
+        })),
+        Object(_angular_animations__WEBPACK_IMPORTED_MODULE_0__["transition"])('* => *', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_0__["animate"])('0.3s ease-in-out'))
+    ]);
+}
+function flyIn() {
+    return Object(_angular_animations__WEBPACK_IMPORTED_MODULE_0__["trigger"])('flyIn', [
+        Object(_angular_animations__WEBPACK_IMPORTED_MODULE_0__["state"])('*', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_0__["style"])({
+            opacity: 1,
+            transform: 'translateX(0)'
+        })),
+        Object(_angular_animations__WEBPACK_IMPORTED_MODULE_0__["transition"])(':enter', [
+            Object(_angular_animations__WEBPACK_IMPORTED_MODULE_0__["style"])({
+                transform: 'translateX(100%)',
+                opacity: 0
+            }),
+            Object(_angular_animations__WEBPACK_IMPORTED_MODULE_0__["animate"])('0.3s ease-in')
+        ])
+    ]);
+}
+function flyDown() {
+    return Object(_angular_animations__WEBPACK_IMPORTED_MODULE_0__["trigger"])('flyDown', [
+        Object(_angular_animations__WEBPACK_IMPORTED_MODULE_0__["state"])('*', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_0__["style"])({
+            opacity: 1,
+            transform: 'translateY(0)'
+        })),
+        Object(_angular_animations__WEBPACK_IMPORTED_MODULE_0__["transition"])(':enter', [
+            Object(_angular_animations__WEBPACK_IMPORTED_MODULE_0__["style"])({
+                transform: 'translateY(-50%)',
+                opacity: 0
+            }),
+            Object(_angular_animations__WEBPACK_IMPORTED_MODULE_0__["animate"])('0.3s ease-in')
+        ])
+    ]);
+}
+function flyUp() {
+    return Object(_angular_animations__WEBPACK_IMPORTED_MODULE_0__["trigger"])('flyUp', [
+        Object(_angular_animations__WEBPACK_IMPORTED_MODULE_0__["state"])('*', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_0__["style"])({
+            opacity: 1,
+            transform: 'translateY(0)'
+        })),
+        Object(_angular_animations__WEBPACK_IMPORTED_MODULE_0__["transition"])(':enter', [
+            Object(_angular_animations__WEBPACK_IMPORTED_MODULE_0__["style"])({
+                transform: 'translateY(50%)',
+                opacity: 0
+            }),
+            Object(_angular_animations__WEBPACK_IMPORTED_MODULE_0__["animate"])('0.3s ease-in')
+        ])
+    ]);
+}
 
 
 /***/ }),
@@ -498,7 +580,7 @@ var BannerComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-banner-inner></app-banner-inner>\n<div class=\"container padded\" fxLayout=\"row\" fxLayout.sm=\"column\" fxLayout.xs=\"column\"\n    fxLayoutAlign.gt-md=\"space-around center\" >\n\n    <div class=\"divi\" fxFlex=\"30\">\n        <h2>Address</h2>\n        <mat-card>\n            <p>\n                110 William St,<br>\n                Perth WA 6000,<br>  \n                Australia.\n            </p>\n            <p>\n                <i class=\"fa fa-phone\"></i>: +1300 667 552\n            </p>\n            <p>\n                <i class=\"fa fa-fax\"></i>: +1300 667 552\n            </p>\n            <p>\n                <i class=\"fa fa-envelope\"></i>: \n                <a href=\"mailto:confusion@food.net\">info@lotf.net</a>\n            </p>\n            <div class=\"contactBtn\">\n                <a mat-raised-button href=\"\"><i class=\"fa fa-phone\"></i> Call</a>\n                <a mat-raised-button><i class=\"fa fa-skype\"></i> Skype</a>\n                <a mat-raised-button href=\"\"><i class=\"fa fa-envelope-o\"></i> Email</a>\n            </div>\n        </mat-card>\n    </div>\n    <div class=\"divi\" fxFlex=\"50\">\n        <h2>Feedback</h2>\n        <form novalidate [formGroup]=\"feedbackForm\" #fform=\"ngForm\" (ngSubmit)=\"onSubmit()\">\n            <p>\n                <mat-form-field class=\"full-width\">\n                    <input matInput formControlName=\"firstname\" placeholder=\"First Name\" type=\"text\" required>\n                    <mat-error *ngIf=\"formErrors.firstname\">{{formErrors.firstname}}</mat-error>\n                </mat-form-field>\n                <mat-form-field class=\"full-width\">\n                    <input matInput formControlName=\"lastname\" placeholder=\"Last Name\" type=\"text\" required>\n                    <mat-error *ngIf=\"formErrors.lastname\">{{formErrors.lastname}}</mat-error>\n                </mat-form-field>\n            </p>\n            <p>\n                <mat-form-field class=\"full-width\">\n                    <input matInput formControlName=\"telnum\" placeholder=\"Tel. Number\" type=\"tel\" required pattern=\"[0-9]*\">\n                    <mat-error *ngIf=\"formErrors.telnum\">{{formErrors.telnum}}</mat-error>\n                </mat-form-field>\n                <mat-form-field class=\"full-width\">\n                    <input matInput formControlName=\"email\" placeholder=\"Email\" type=\"email\" required email>\n                    <mat-error *ngIf=\"formErrors.email\">{{formErrors.email}}</mat-error>\n                </mat-form-field>\n            </p>\n\n            <table class=\"form-size\">\n                <td>\n                    <mat-slide-toggle formControlName=\"agree\">May we contact you?</mat-slide-toggle>\n                </td>\n                <td>\n                    <mat-select placeholder=\"How?\" formControlName=\"contacttype\">\n                        <mat-option *ngFor=\"let ctype of contactType\" [value]=\"ctype\">\n                        {{ ctype }}\n                        </mat-option>\n                    </mat-select>\n                </td>\n            </table>\n\n            <p>\n                <mat-form-field class=\"full-width\">\n                    <textarea matInput formControlName=\"message\" placeholder=\"Your Feedback\" rows=3></textarea>\n                </mat-form-field>\n            </p>\n            <button [disabled]=\"feedbackForm.invalid\" type=\"submit\" mat-button class=\"background-primary text-floral-white\">Submit</button>\n        </form>\n    </div>\n</div>\n\n<app-map></app-map>"
+module.exports = "<app-banner-inner></app-banner-inner>\n<div class=\"container padded\" fxLayout=\"row\" fxLayout.sm=\"column\" fxLayout.xs=\"column\"\n    fxLayoutAlign.gt-md=\"space-around center\" [@flyIn]>\n\n    <div class=\"divi\" fxFlex=\"30\">\n        <h2>Address</h2>\n        <mat-card>\n            <p>\n                110 William St,<br>\n                Perth WA 6000,<br>  \n                Australia.\n            </p>\n            <p>\n                <i class=\"fa fa-phone\"></i>: +1300 667 552\n            </p>\n            <p>\n                <i class=\"fa fa-fax\"></i>: +1300 667 552\n            </p>\n            <p>\n                <i class=\"fa fa-envelope\"></i>: \n                <a href=\"mailto:confusion@food.net\">info@lotf.net</a>\n            </p>\n            <div class=\"contactBtn\">\n                <a mat-raised-button href=\"\"><i class=\"fa fa-phone\"></i> Call</a>\n                <a mat-raised-button><i class=\"fa fa-skype\"></i> Skype</a>\n                <a mat-raised-button href=\"\"><i class=\"fa fa-envelope-o\"></i> Email</a>\n            </div>\n        </mat-card>\n    </div>\n    <div class=\"divi\" fxFlex=\"50\">\n        <h2>Feedback</h2>\n        <form novalidate [formGroup]=\"feedbackForm\" #fform=\"ngForm\" (ngSubmit)=\"onSubmit()\">\n            <p>\n                <mat-form-field class=\"full-width\">\n                    <input matInput formControlName=\"firstname\" placeholder=\"First Name\" type=\"text\" required>\n                    <mat-error *ngIf=\"formErrors.firstname\">{{formErrors.firstname}}</mat-error>\n                </mat-form-field>\n                <mat-form-field class=\"full-width\">\n                    <input matInput formControlName=\"lastname\" placeholder=\"Last Name\" type=\"text\" required>\n                    <mat-error *ngIf=\"formErrors.lastname\">{{formErrors.lastname}}</mat-error>\n                </mat-form-field>\n            </p>\n            <p>\n                <mat-form-field class=\"full-width\">\n                    <input matInput formControlName=\"telnum\" placeholder=\"Tel. Number\" type=\"tel\" required pattern=\"[0-9]*\">\n                    <mat-error *ngIf=\"formErrors.telnum\">{{formErrors.telnum}}</mat-error>\n                </mat-form-field>\n                <mat-form-field class=\"full-width\">\n                    <input matInput formControlName=\"email\" placeholder=\"Email\" type=\"email\" required email>\n                    <mat-error *ngIf=\"formErrors.email\">{{formErrors.email}}</mat-error>\n                </mat-form-field>\n            </p>\n\n            <table class=\"form-size\">\n                <td>\n                    <mat-slide-toggle formControlName=\"agree\">May we contact you?</mat-slide-toggle>\n                </td>\n                <td>\n                    <mat-select placeholder=\"How?\" formControlName=\"contacttype\">\n                        <mat-option *ngFor=\"let ctype of contactType\" [value]=\"ctype\">\n                        {{ ctype }}\n                        </mat-option>\n                    </mat-select>\n                </td>\n            </table>\n\n            <p>\n                <mat-form-field class=\"full-width\">\n                    <textarea matInput formControlName=\"message\" placeholder=\"Your Feedback\" rows=3></textarea>\n                </mat-form-field>\n            </p>\n            <button [disabled]=\"feedbackForm.invalid\" type=\"submit\" mat-button class=\"background-primary text-floral-white\">Submit</button>\n        </form>\n    </div>\n</div>\n\n<app-map></app-map>"
 
 /***/ }),
 
@@ -525,7 +607,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ContactComponent", function() { return ContactComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _shared_feedback__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../shared/feedback */ "./src/app/shared/feedback.ts");
+/* harmony import */ var _animations_app_animation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../animations/app.animation */ "./src/app/animations/app.animation.ts");
+/* harmony import */ var _shared_feedback__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../shared/feedback */ "./src/app/shared/feedback.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -538,10 +621,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var ContactComponent = /** @class */ (function () {
     function ContactComponent(fb) {
         this.fb = fb;
-        this.contactType = _shared_feedback__WEBPACK_IMPORTED_MODULE_2__["ContactType"];
+        this.contactType = _shared_feedback__WEBPACK_IMPORTED_MODULE_3__["ContactType"];
         this.formErrors = {
             'firstname': '',
             'lastname': '',
@@ -634,7 +718,11 @@ var ContactComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-contact',
             template: __webpack_require__(/*! ./contact.component.html */ "./src/app/contact/contact.component.html"),
-            styles: [__webpack_require__(/*! ./contact.component.scss */ "./src/app/contact/contact.component.scss")]
+            styles: [__webpack_require__(/*! ./contact.component.scss */ "./src/app/contact/contact.component.scss")],
+            //trigger name visibilty takes state with style and transformation
+            animations: [
+                Object(_animations_app_animation__WEBPACK_IMPORTED_MODULE_2__["flyIn"])()
+            ]
         }),
         __metadata("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"]])
     ], ContactComponent);
@@ -652,7 +740,7 @@ var ContactComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-banner-inner></app-banner-inner>\n<div class=\"container padded\" fxLayout=\"column\" fxLayout.sm=\"column\" fxLayout.xs=\"column\" fxLayoutAlign.gt-md=\"space-around center\" fxLayoutGap=\"30px\">\n\n    <div fxFlex  *ngIf=\"dish\">\n        <h2 fxLayout=\"column\">{{dish.name | uppercase}}</h2>\n        <div class=\"dish\" fxLayout=\"column\" fxLayout.gt-sm=\"row\">        \n            <div fxFlex=\"45\">\n                <div class=\"menuImg\">\n                    <img src=\"../{{dish.image}}\" alt={{dish.name}}>\n                </div>\n                <div class=\"info\">\n                    <p>{{dish.name}}</p>\n                    <label></label>\n                    <span>{{dish.price}}</span>\n                </div>  \n                <div class=\"actions\" fxLayout=\"row\" fxLayout.sm=\"column\" fxLayout.xs=\"column\" fxLayoutAlign.gt-md=\"space-around center\" fxLayoutGap=\"-60px\">\n                    <button fxFlex=\"20\" mat-button (click)=\"goBack()\">BACK</button>\n                    <button fxFlex=\"20\" mat-button [routerLink]=\"['/dish-detail', prev]\"><span class=\"fa fa-chevron-left fa-lg\"></span></button>\n                    <button fxFlex=\"20\" mat-button [routerLink]=\"['/dish-detail', next]\"><span class=\"fa fa-chevron-right fa-lg\"></span></button>\n                </div>              \n            </div>\n            <div class=\"details\" fxFlex=\"45\">\n                <p>{{dish.description}}</p>\n                <h3>Comments</h3>\n                <mat-list style=\"clear: both\">\n                    <mat-list-item *ngFor=\"let comment of dish.comments\">\n                        <p matLine class=\"commentHead\">\n                            <span> {{comment.author}} </span> \n                            <span> {{comment.rating}} Stars</span>\n                        </p>\n                        <p matLine class=\"commentBody\">\n                            <span> {{comment.comment}} </span>\n                            <span> {{comment.date | date}} </span> \n                        </p>\n                    </mat-list-item>\n                    <mat-list-item *ngIf=\"commentForm.valid\">\n                        <p matLine class=\"commentHead\">\n                            <span> {{ commentForm.get('author').value}} </span>\n                            <span> {{ commentForm.get('rating').value}} Stars</span>\n                        </p>\n                        <p matLine class=\"commentBody newComment\">\n                            <span> {{ commentForm.get('comment').value}} </span>\n                        </p>\n                    </mat-list-item>\n                </mat-list>\n\n                <h3>Add a Comment</h3>\n                <form novalidate [formGroup]=\"commentForm\" #myForm=\"ngForm\" (ngSubmit)=\"onSubmit()\">\n                    <p>\n                        <mat-form-field class=\"full-width\">\n                            <input matInput formControlName=\"author\" placeholder=\"Name\" type=\"text\" required>\n                            <mat-error *ngIf=\"formErrors.author\">{{formErrors.author}}</mat-error>\n                        </mat-form-field>\n                    </p>\n                    <p>\n                        <mat-slider  max=\"5\" min=\"1\" step=\"1\" tickInterval=\"1\" thumbLabel value=\"5\" formControlName = \"rating\" >\n                        </mat-slider>\n                    </p>\n                    <p>\n                        <mat-form-field class=\"full-width\">\n                            <textarea matInput formControlName=\"comment\" placeholder=\"Your Comment\" rows=4 required=\"\"></textarea>\n                            <mat-error *ngIf=\"formErrors.comment\">{{formErrors.comment}}</mat-error>\n                        </mat-form-field>\n                    </p>\n                    <button [disabled]=\"commentForm.invalid\" type=\"submit\" mat-button class=\"background-primary text-floral-white\">Submit</button>\n                  \n                </form>\n            </div>\n        </div>\n    </div> \n\n    <div class=\"loading\" [hidden]=\"dish\">\n        <img src=\"assets/images/load.gif\"> <p>Loading . . . Please Wait</p>\n    </div>\n</div>\n<!--\n<div class=\"container\"\n    fxLayout=\"row\"\n    fxLayout.sm=\"column\"\n    fxLayout.xs=\"column\"\n    fxLayoutAlign.gt-md=\"space-around center\"\n    fxLayoutGap=\"10px\" \n    fxLayoutGap.xs=\"0\" *ngIf=\"dish\">\n\n  <div fxFlex=\"40\" *ngIf=\"dish\">\n    <mat-card>\n      <mat-card-header>\n        <mat-card-title>\n          <h3>{{dish.name | uppercase}}</h3>\n        </mat-card-title>\n      </mat-card-header>\n      <img mat-card-image src=\"../{{dish.image}}\" alt={{dish.name}}>\n      <mat-card-content>\n        <p>{{dish.description}}</p>\n      </mat-card-content>\n      <mat-card-actions>\n        <button mat-button (click)=\"goBack()\">BACK</button>\n        <button mat-button [routerLink]=\"['/dish-detail', prev]\"><span class=\"fa fa-chevron-left fa-lg\"></span></button>\n        <span class=\"flex-spacer\"></span>\n        <button mat-button [routerLink]=\"['/dish-detail', next]\"><span class=\"fa fa-chevron-right fa-lg\"></span></button>\n      </mat-card-actions>\n    </mat-card>\n  </div>\n\n  <div fxFlex=\"40\" *ngIf=\"dish\">\n    <h2>Comments</h2>\n    \n\n    <h2>Add a Comment</h2>\n\n    <form novalidate [formGroup]=\"commentForm\" #myForm=\"ngForm\" (ngSubmit)=\"onSubmit()\">\n      <p>\n        <mat-form-field class=\"full-width\">\n          <input matInput formControlName=\"author\" placeholder=\"Name\" type=\"text\" required>\n          <mat-error *ngIf=\"formErrors.author\">{{formErrors.author}}</mat-error>\n        </mat-form-field>\n      </p>\n      <p>\n        <mat-slider\n          max=\"5\"\n          min=\"1\"\n          step=\"1\"\n          tickInterval=\"1\"\n          thumbLabel\n          value=\"5\"\n          formControlName = \"rating\"\n        >\n    </mat-slider>\n      </p>\n      <p>\n        <mat-form-field class=\"full-width\">\n          <textarea matInput formControlName=\"comment\" placeholder=\"Your Comment\" rows=4 required=\"\"></textarea>\n          <mat-error *ngIf=\"formErrors.comment\">{{formErrors.comment}}</mat-error>\n        </mat-form-field>\n      </p>\n      <button type=\"submit\" mat-button class=\"background-primary text-floral-white\">Submit</button>\n      \n    </form>\n  </div>\n</div>\n-->\n\n"
+module.exports = "<app-banner-inner></app-banner-inner>\n<div class=\"container padded\" fxLayout=\"column\" fxLayout.sm=\"column\" fxLayout.xs=\"column\" fxLayoutAlign.gt-md=\"space-around center\" fxLayoutGap=\"30px\" [@flyIn]>\n\n  <div fxFlex  *ngIf=\"dish\" [@visibility]=\"visibility\">\n      <h2 fxLayout=\"column\">{{dish.name | uppercase}}</h2>\n      <div class=\"dish\" fxLayout=\"column\" fxLayout.gt-sm=\"row\">        \n          <div fxFlex=\"45\">\n              <div class=\"menuImg\">\n                  <img src=\"../{{dish.image}}\" alt={{dish.name}}>\n              </div>\n              <div class=\"info\">\n                  <p>{{dish.name}}</p>\n                  <label></label>\n                  <span>{{dish.price}}</span>\n              </div>  \n              <div class=\"actions\" fxLayout=\"row\" fxLayout.sm=\"column\" fxLayout.xs=\"column\" fxLayoutAlign.gt-md=\"space-around center\" fxLayoutGap=\"-60px\">\n                  <button fxFlex=\"20\" mat-button (click)=\"goBack()\">BACK</button>\n                  <button fxFlex=\"20\" mat-button [routerLink]=\"['/dish-detail', prev]\"><span class=\"fa fa-chevron-left fa-lg\"></span></button>\n                  <button fxFlex=\"20\" mat-button [routerLink]=\"['/dish-detail', next]\"><span class=\"fa fa-chevron-right fa-lg\"></span></button>\n              </div>              \n          </div>\n          <div class=\"details\" fxFlex=\"45\">\n              <p>{{dish.description}}</p>\n              <h3>Comments</h3>\n              <mat-list style=\"clear: both\">\n                  <mat-list-item *ngFor=\"let comment of dish.comments\">\n                      <p matLine class=\"commentHead\">\n                          <span> {{comment.author}} </span> \n                          <span> {{comment.rating}} Stars</span>\n                      </p>\n                      <p matLine class=\"commentBody\">\n                          <span> {{comment.comment}} </span>\n                          <span> {{comment.date | date}} </span> \n                      </p>\n                  </mat-list-item>\n                  <mat-list-item *ngIf=\"commentForm.valid\">\n                      <p matLine class=\"commentHead\">\n                          <span> {{ commentForm.get('author').value}} </span>\n                          <span> {{ commentForm.get('rating').value}} Stars</span>\n                      </p>\n                      <p matLine class=\"commentBody newComment\">\n                          <span> {{ commentForm.get('comment').value}} </span>\n                      </p>\n                  </mat-list-item>\n              </mat-list>\n\n              <h3>Add a Comment</h3>\n              <form novalidate [formGroup]=\"commentForm\" #myForm=\"ngForm\" (ngSubmit)=\"onSubmit()\">\n                  <p>\n                      <mat-form-field class=\"full-width\">\n                          <input matInput formControlName=\"author\" placeholder=\"Name\" type=\"text\" required>\n                          <mat-error *ngIf=\"formErrors.author\">{{formErrors.author}}</mat-error>\n                      </mat-form-field>\n                  </p>\n                  <p>\n                      <mat-slider  max=\"5\" min=\"1\" step=\"1\" tickInterval=\"1\" thumbLabel value=\"5\" formControlName = \"rating\" >\n                      </mat-slider>\n                  </p>\n                  <p>\n                      <mat-form-field class=\"full-width\">\n                          <textarea matInput formControlName=\"comment\" placeholder=\"Your Comment\" rows=4 required=\"\"></textarea>\n                          <mat-error *ngIf=\"formErrors.comment\">{{formErrors.comment}}</mat-error>\n                      </mat-form-field>\n                  </p>\n                  <button [disabled]=\"commentForm.invalid\" type=\"submit\" mat-button class=\"background-primary text-floral-white\">Submit</button>\n                \n              </form>\n          </div>\n      </div>\n  </div> \n\n</div>\n\n\n<div class=\"loading\" [hidden]=\"dish\">\n  <img src=\"../assets/images/load.gif\"> <p>Loading . . . Please Wait</p>\n</div>"
 
 /***/ }),
 
@@ -685,6 +773,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var hammerjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! hammerjs */ "./node_modules/hammerjs/hammer.js");
 /* harmony import */ var hammerjs__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(hammerjs__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _animations_app_animation__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../animations/app.animation */ "./src/app/animations/app.animation.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -694,6 +783,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -722,6 +812,7 @@ var DishDetailComponent = /** @class */ (function () {
                 'minlength': 'Message must be at least 2 characters long.'
             },
         };
+        this.visibility = 'shown';
         this.createForm();
     }
     // ///////////////////Dish details stuff//////////////////// //
@@ -729,10 +820,14 @@ var DishDetailComponent = /** @class */ (function () {
     DishDetailComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.dishservice.getDishIds().subscribe(function (dishIds) { return _this.dishIds = dishIds; });
-        this.route.params.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (params) { return _this.dishservice.getDish(+params['id']); }))
+        this.route.params.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (params) {
+            _this.visibility = 'hidden';
+            return _this.dishservice.getDish(+params['id']);
+        }))
             .subscribe(function (dish) {
             _this.dish = dish;
             _this.setPrevNext(dish.id);
+            _this.visibility = 'shown';
         });
     };
     DishDetailComponent.prototype.setPrevNext = function (dishId) {
@@ -798,7 +893,16 @@ var DishDetailComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-dish-detail',
             template: __webpack_require__(/*! ./dish-detail.component.html */ "./src/app/dish-detail/dish-detail.component.html"),
-            styles: [__webpack_require__(/*! ./dish-detail.component.scss */ "./src/app/dish-detail/dish-detail.component.scss")]
+            styles: [__webpack_require__(/*! ./dish-detail.component.scss */ "./src/app/dish-detail/dish-detail.component.scss")],
+            host: {
+                '[@flyInOu]': 'true',
+                'style': 'block'
+            },
+            //trigger name visibilty takes state with style and transformation
+            animations: [
+                Object(_animations_app_animation__WEBPACK_IMPORTED_MODULE_7__["visibility"])(),
+                Object(_animations_app_animation__WEBPACK_IMPORTED_MODULE_7__["flyIn"])(),
+            ]
         }),
         __metadata("design:paramtypes", [_services_dish_service__WEBPACK_IMPORTED_MODULE_1__["DishService"],
             _angular_common__WEBPACK_IMPORTED_MODULE_3__["Location"],
@@ -954,7 +1058,7 @@ var HeaderComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-banner></app-banner>\n<div class=\"divi who\">\n    <div class=\"container\" fxLayout=\"row\" fxLayout.sm=\"column\" fxLayout.xs=\"column\"\n    fxLayoutAlign.gt-md=\"space-around center\" fxLayoutGap=\"50px\">\n        <div fxFlex>\n            <i class=\"fa fa-question\"></i>\n            <h3>Who We Are</h3>\n            <p>When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting</p>\n            <p class=\"quote\"><span>\"</span> Lorem Ipsum is simply dummy text of the printing and typesetting industry.<span>\"</span></p>\n        </div>\n\n        <div fxFlex>\n            <i class=\"fa fa-truck\"></i>\n            <h3>Fastest Delivery</h3>\n            <p>When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting</p>\n            <p class=\"quote\"><span>\"</span> Lorem Ipsum is simply dummy text of the printing and typesetting industry.<span>\"</span></p>\n        </div>\n\n        <div fxFlex>\n            <i class=\"fa fa-globe\"></i>\n            <h3>Original Recipes</h3>\n            <p>When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting</p>\n            <p class=\"quote\"><span>\"</span> Lorem Ipsum is simply dummy text of the printing and typesetting industry.<span>\"</span></p>\n        </div>\n\n\n    </div>\n</div>\n\n\n<div class=\"divi\">\n    <div class=\"parallax featured\"><h2>Featured</h2></div>\n    <div class=\"container padded\" fxLayout=\"row\" fxLayout.sm=\"column\" fxLayout.xs=\"column\"\n    fxLayoutAlign.gt-md=\"space-around center\" fxLayoutGap=\"50px\">\n\n        <div *ngIf=\"dish\" fxFlex>\n            <mat-card>\n                <img mat-card-image src={{dish.image}} alt={{dish.name}}>\n                <mat-card-content>\n                <h4>{{dish.name | uppercase}}</h4>\n                    <p>{{dish.description}}</p>\n                </mat-card-content>\n            </mat-card>\n        </div>\n        <div class=\"loading\" [hidden]=\"dish\">\n            <img src=\"assets/images/load.gif\"> <p>Loading . . . Please Wait</p>\n        </div>\n\n        <div *ngIf=\"promotion\" fxFlex>\n            <mat-card>\n                <img mat-card-image src={{promotion.image}} alt={{promotion.name}}>\n                <mat-card-content>\n                    <h4>{{promotion.name | uppercase}}</h4>\n                    <p>{{promotion.description}}</p>\n                </mat-card-content>\n            </mat-card>\n        </div>\n        <div class=\"loading\" [hidden]=\"promotion\">\n            <img src=\"assets/images/load.gif\"> <p>Loading . . . Please Wait</p>\n        </div>\n\n        <div *ngIf=\"leader\" fxFlex>\n            <mat-card>\n                <img mat-card-image src={{leader.image}} alt={{leader.name}}>\n                <mat-card-content>\n                    <h4>{{leader.name | uppercase}}</h4>\n                    <p>{{leader.designation}}. {{leader.description}}</p>\n                </mat-card-content>\n            </mat-card>\n        </div>\n        <div class=\"loading\" [hidden]=\"leader\">\n            <img src=\"assets/images/load.gif\"> <p>Loading . . . Please Wait</p>\n        </div>\n\n    </div>\n\n</div>\n\n\n<div class=\"divi menuPart\">\n    <div class=\"parallax menu\"><h2>Menu</h2></div>\n    <div class=\"container padded\" fxLayout=\"row\" fxLayout.sm=\"column\" fxLayout.xs=\"column\"\n    fxLayoutAlign.gt-md=\"space-around center\" fxLayoutGap=\"50px\" *ngIf=\"dishes\">\n        <div class=\"menuDiv\" fxFlex *ngFor=\"let dish of dishes | slice:1:3\">\n            <div class=\"menuImg\">\n                <img src={{dish.image}} alt={{dish.name}}>\n            </div>\n            <div class=\"info\">\n                <p>{{dish.name}}</p>\n                <label></label>\n                <span>{{dish.price}}</span>\n            </div>\n        </div>\n    </div>\n    <a routerLink=\"/menu\">view all menu items <i>&rarr;</i></a>\n    <div class=\"loading\" [hidden]=\"dish\">\n        <img src=\"assets/images/load.gif\"> <p>Loading . . . Please Wait</p>\n    </div>\n</div>"
+module.exports = "<app-banner></app-banner>\n<div>\n    <div class=\"divi who\">\n        <div class=\"container\" fxLayout=\"row\" fxLayout.sm=\"column\" fxLayout.xs=\"column\"\n        fxLayoutAlign.gt-md=\"space-around center\" fxLayoutGap=\"50px\">\n            <div fxFlex>\n                <i class=\"fa fa-question\"></i>\n                <h3>Who We Are</h3>\n                <p>When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting</p>\n                <p class=\"quote\"><span>\"</span> Lorem Ipsum is simply dummy text of the printing and typesetting industry.<span>\"</span></p>\n            </div>\n\n            <div fxFlex>\n                <i class=\"fa fa-truck\"></i>\n                <h3>Fastest Delivery</h3>\n                <p>When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting</p>\n                <p class=\"quote\"><span>\"</span> Lorem Ipsum is simply dummy text of the printing and typesetting industry.<span>\"</span></p>\n            </div>\n\n            <div fxFlex>\n                <i class=\"fa fa-globe\"></i>\n                <h3>Original Recipes</h3>\n                <p>When an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting</p>\n                <p class=\"quote\"><span>\"</span> Lorem Ipsum is simply dummy text of the printing and typesetting industry.<span>\"</span></p>\n            </div>\n\n\n        </div>\n    </div>\n\n\n    <div class=\"divi\">\n        <div class=\"parallax featured\"><h2>Featured</h2></div>\n        <div class=\"container padded\" fxLayout=\"row\" fxLayout.sm=\"column\" fxLayout.xs=\"column\"\n        fxLayoutAlign.gt-md=\"space-around center\" fxLayoutGap=\"50px\">\n\n            <div *ngIf=\"dish\" fxFlex [@flyDown]>\n                <mat-card>\n                    <img mat-card-image src={{dish.image}} alt={{dish.name}}>\n                    <mat-card-content>\n                    <h4>{{dish.name | uppercase}}</h4>\n                        <p>{{dish.description}}</p>\n                    </mat-card-content>\n                </mat-card>\n            </div>\n            <div class=\"loading\" [hidden]=\"dish\">\n                <img src=\"assets/images/load.gif\"> <p>Loading . . . Please Wait</p>\n            </div>\n\n            <div *ngIf=\"promotion\" fxFlex [@flyUp]>\n                <mat-card>\n                    <img mat-card-image src={{promotion.image}} alt={{promotion.name}}>\n                    <mat-card-content>\n                        <h4>{{promotion.name | uppercase}}</h4>\n                        <p>{{promotion.description}}</p>\n                    </mat-card-content>\n                </mat-card>\n            </div>\n            <div class=\"loading\" [hidden]=\"promotion\">\n                <img src=\"assets/images/load.gif\"> <p>Loading . . . Please Wait</p>\n            </div>\n\n            <div *ngIf=\"leader\" fxFlex [@flyDown]>\n                <mat-card>\n                    <img mat-card-image src={{leader.image}} alt={{leader.name}}>\n                    <mat-card-content>\n                        <h4>{{leader.name | uppercase}}</h4>\n                        <p>{{leader.designation}}. {{leader.description}}</p>\n                    </mat-card-content>\n                </mat-card>\n            </div>\n            <div class=\"loading\" [hidden]=\"leader\">\n                <img src=\"assets/images/load.gif\"> <p>Loading . . . Please Wait</p>\n            </div>\n\n        </div>\n\n    </div>\n\n\n    <div class=\"divi menuPart\">\n        <div class=\"parallax menu\"><h2>Menu</h2></div>\n        <div class=\"container padded\" fxLayout=\"row\" fxLayout.sm=\"column\" fxLayout.xs=\"column\"\n        fxLayoutAlign.gt-md=\"space-around center\" fxLayoutGap=\"50px\" *ngIf=\"dishes\">\n            <div class=\"menuDiv\" fxFlex *ngFor=\"let dish of dishes | slice:1:3\">\n                <div class=\"menuImg\">\n                    <img src={{dish.image}} alt={{dish.name}}>\n                </div>\n                <div class=\"info\">\n                    <p>{{dish.name}}</p>\n                    <label></label>\n                    <span>{{dish.price}}</span>\n                </div>\n            </div>\n        </div>\n        <a routerLink=\"/menu\">view all menu items <i>&rarr;</i></a>\n        <div class=\"loading\" [hidden]=\"dish\">\n            <img src=\"assets/images/load.gif\"> <p>Loading . . . Please Wait</p>\n        </div>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -965,7 +1069,7 @@ module.exports = "<app-banner></app-banner>\n<div class=\"divi who\">\n    <div 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".divi .padded {\n  padding: 50px 50px 70px 50px; }\n\n.divi .parallax {\n  min-height: 350px;\n  background-attachment: fixed;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover; }\n\n.divi .parallax.featured {\n    background-image: url(\"assets/images/slider1.jpg\"); }\n\n.divi .parallax.menu {\n    background-image: url(\"assets/images/slider2.jpg\"); }\n\n.divi .parallax h2 {\n    text-align: center;\n    text-transform: uppercase;\n    margin-bottom: 50px;\n    line-height: 350px;\n    color: #fff;\n    background: url(assets/images/pattarn2.png);\n    background-repeat: repeat; }\n\n.divi h2 {\n  text-align: center;\n  text-transform: uppercase;\n  margin-bottom: 60px;\n  font-size: 34px; }\n\n.divi mat-card {\n  border-radius: 4px; }\n\n.divi mat-card img {\n    height: 250px;\n    border-top-left-radius: 4px;\n    border-top-right-radius: 4px; }\n\n.divi mat-card p {\n    height: 80px;\n    overflow: hidden; }\n\n.divi.who {\n  width: 75%;\n  margin: 0 auto;\n  padding: 50px 0;\n  text-align: center; }\n\n.divi.who i {\n    font-size: 70px;\n    opacity: 0.1; }\n\n.divi.who .quote {\n    opacity: 0.5;\n    font-style: italic;\n    font-size: 14px; }\n\n.divi.who .quote span {\n      font-size: 18px;\n      font-weight: bolder; }\n\n.divi.menuPart .menuDiv .menuImg {\n  overflow: hidden;\n  height: 200px; }\n\n.divi.menuPart .menuDiv .menuImg img {\n    width: 100%; }\n\n.divi.menuPart .menuDiv .info {\n  display: flex; }\n\n.divi.menuPart .menuDiv .info span {\n    color: #acaa6d;\n    margin-top: 13px;\n    font-family: 'Poppins', sans-serif;\n    font-size: 18px; }\n\n.divi.menuPart .menuDiv .info label {\n    border-bottom: 1px dashed #acaa6d;\n    margin-left: 10px;\n    flex: 2;\n    height: 33px;\n    margin-right: 15px;\n    opacity: 0.3; }\n\n.divi.menuPart a,\n.divi.menuPart a:link,\n.divi.menuPart a:active,\n.divi.menuPart a:visited,\n.divi.menuPart a:hover {\n  float: right;\n  margin: -50px 214px 20px 0;\n  text-decoration: none;\n  font-size: 14px;\n  letter-spacing: 0;\n  font-style: italic; }\n"
+module.exports = ".divi .padded {\n  padding: 50px 50px 70px 50px; }\n\n.divi .parallax {\n  min-height: 350px;\n  background-attachment: fixed;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover; }\n\n.divi .parallax.featured {\n    background-image: url(\"assets/images/slider1.jpg\"); }\n\n.divi .parallax.menu {\n    background-image: url(\"assets/images/slider2.jpg\"); }\n\n.divi .parallax h2 {\n    text-align: center;\n    text-transform: uppercase;\n    margin-bottom: 50px;\n    line-height: 350px;\n    color: #fff;\n    background: url(/assets/images/pattarn2.png);\n    background-repeat: repeat; }\n\n.divi h2 {\n  text-align: center;\n  text-transform: uppercase;\n  margin-bottom: 60px;\n  font-size: 34px; }\n\n.divi mat-card {\n  border-radius: 4px; }\n\n.divi mat-card img {\n    height: 250px;\n    border-top-left-radius: 4px;\n    border-top-right-radius: 4px; }\n\n.divi mat-card p {\n    height: 80px;\n    overflow: hidden; }\n\n.divi.who {\n  width: 75%;\n  margin: 0 auto;\n  padding: 50px 0;\n  text-align: center; }\n\n.divi.who i {\n    font-size: 70px;\n    opacity: 0.1; }\n\n.divi.who .quote {\n    opacity: 0.5;\n    font-style: italic;\n    font-size: 14px; }\n\n.divi.who .quote span {\n      font-size: 18px;\n      font-weight: bolder; }\n\n.divi.menuPart .menuDiv .menuImg {\n  overflow: hidden;\n  height: 200px; }\n\n.divi.menuPart .menuDiv .menuImg img {\n    width: 100%; }\n\n.divi.menuPart .menuDiv .info {\n  display: flex; }\n\n.divi.menuPart .menuDiv .info span {\n    color: #acaa6d;\n    margin-top: 13px;\n    font-family: 'Poppins', sans-serif;\n    font-size: 18px; }\n\n.divi.menuPart .menuDiv .info label {\n    border-bottom: 1px dashed #acaa6d;\n    margin-left: 10px;\n    flex: 2;\n    height: 33px;\n    margin-right: 15px;\n    opacity: 0.3; }\n\n.divi.menuPart a,\n.divi.menuPart a:link,\n.divi.menuPart a:active,\n.divi.menuPart a:visited,\n.divi.menuPart a:hover {\n  float: right;\n  margin: -50px 214px 20px 0;\n  text-decoration: none;\n  font-size: 14px;\n  letter-spacing: 0;\n  font-style: italic; }\n"
 
 /***/ }),
 
@@ -983,6 +1087,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_dish_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/dish.service */ "./src/app/services/dish.service.ts");
 /* harmony import */ var _services_promotion_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/promotion.service */ "./src/app/services/promotion.service.ts");
 /* harmony import */ var _services_leader_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/leader.service */ "./src/app/services/leader.service.ts");
+/* harmony import */ var _animations_app_animation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../animations/app.animation */ "./src/app/animations/app.animation.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -992,6 +1097,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -1014,7 +1120,12 @@ var HomeComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-home',
             template: __webpack_require__(/*! ./home.component.html */ "./src/app/home/home.component.html"),
-            styles: [__webpack_require__(/*! ./home.component.scss */ "./src/app/home/home.component.scss")]
+            styles: [__webpack_require__(/*! ./home.component.scss */ "./src/app/home/home.component.scss")],
+            //trigger name visibilty takes state with style and transformation
+            animations: [
+                Object(_animations_app_animation__WEBPACK_IMPORTED_MODULE_4__["flyDown"])(),
+                Object(_animations_app_animation__WEBPACK_IMPORTED_MODULE_4__["flyUp"])()
+            ]
         }),
         __metadata("design:paramtypes", [_services_dish_service__WEBPACK_IMPORTED_MODULE_1__["DishService"],
             _services_promotion_service__WEBPACK_IMPORTED_MODULE_2__["PromotionService"],
@@ -1168,7 +1279,7 @@ var MapComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-banner-inner></app-banner-inner>\n<div class=\"container btns\" fxLayout=\"row\" fxLayoutGap=\"10px\">\n\t<button fxFlex=\"10\" mat-button routerLinkActive=\"active\" type=\"button\" (click)=\"onClick($event)\">All</button>\n\t<button fxFlex=\"10\" mat-button type=\"button\" datafilter=\"Mains\" (click)=\"onClick($event)\">Mains</button>\n\t<button fxFlex=\"10\" mat-button type=\"button\" datafilter=\"Appetizer\" (click)=\"onClick($event)\">Appetizer</button>\n\t<button fxFlex=\"10\" mat-button type=\"button\" datafilter=\"Dessert\" (click)=\"onClick($event)\">Dessert</button>\n</div>\n\n<div class=\"container padded\" fxLayout=\"row\" fxLayout.sm=\"column\" fxLayout.xs=\"column\"\n    fxLayoutAlign.gt-md=\"space-around center\" fxLayoutGap=\"50px\" *ngIf=\"dishes\">\n    <div class=\"menuDiv mix {{dish.category | titlecase}}\" *ngFor=\"let dish of dishes\" [routerLink]=\"['/dish-detail', dish.id]\" fxFlex=\"45\">\n        <div class=\"menuImg\">\n            <img src={{dish.image}} alt={{dish.name}}>\n        </div>\n        <div class=\"info\">\n            <p>{{dish.name}}</p>\n            <label></label>\n            <span>${{dish.price}}</span>\n            <p>{{dish.description}}</p>\n        </div>\n    </div>\n</div>\n<div class=\"loading\" [hidden]=\"dishes\">\n    <img src=\"assets/images/load.gif\"> <p>Loading . . . Please Wait</p>\n</div>"
+module.exports = "<app-banner-inner></app-banner-inner>\n<div class=\"container btns\" fxLayout=\"row\" fxLayoutGap=\"10px\" [@flyIn]>\n\t<button fxFlex=\"10\" mat-button routerLinkActive=\"active\" type=\"button\" (click)=\"onClick($event)\">All</button>\n\t<button fxFlex=\"10\" mat-button type=\"button\" datafilter=\"Mains\" (click)=\"onClick($event)\">Mains</button>\n\t<button fxFlex=\"10\" mat-button type=\"button\" datafilter=\"Appetizer\" (click)=\"onClick($event)\">Appetizer</button>\n\t<button fxFlex=\"10\" mat-button type=\"button\" datafilter=\"Dessert\" (click)=\"onClick($event)\">Dessert</button>\n</div>\n\n<div class=\"container padded\" fxLayout=\"row\" fxLayout.sm=\"column\" fxLayout.xs=\"column\"\n    fxLayoutAlign.gt-md=\"space-around center\" fxLayoutGap=\"50px\" *ngIf=\"dishes\">\n    <div class=\"menuDiv mix {{dish.category | titlecase}}\" *ngFor=\"let dish of dishes\" [routerLink]=\"['/dish-detail', dish.id]\" fxFlex=\"45\" [@flyDown]>\n        <div class=\"menuImg\">\n            <img src={{dish.image}} alt={{dish.name}}>\n        </div>\n        <div class=\"info\">\n            <p>{{dish.name}}</p>\n            <label></label>\n            <span>${{dish.price}}</span>\n            <p>{{dish.description}}</p>\n        </div>\n    </div>\n</div>\n<div class=\"loading\" [hidden]=\"dishes\" [@flyIn]>\n    <img src=\"assets/images/load.gif\"> <p>Loading . . . Please Wait</p>\n</div>"
 
 /***/ }),
 
@@ -1195,6 +1306,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MenuComponent", function() { return MenuComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _services_dish_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/dish.service */ "./src/app/services/dish.service.ts");
+/* harmony import */ var _animations_app_animation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../animations/app.animation */ "./src/app/animations/app.animation.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1204,6 +1316,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 var MenuComponent = /** @class */ (function () {
@@ -1254,7 +1367,12 @@ var MenuComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-menu',
             template: __webpack_require__(/*! ./menu.component.html */ "./src/app/menu/menu.component.html"),
-            styles: [__webpack_require__(/*! ./menu.component.scss */ "./src/app/menu/menu.component.scss")]
+            styles: [__webpack_require__(/*! ./menu.component.scss */ "./src/app/menu/menu.component.scss")],
+            //trigger name visibilty takes state with style and transformation
+            animations: [
+                Object(_animations_app_animation__WEBPACK_IMPORTED_MODULE_2__["flyIn"])(),
+                Object(_animations_app_animation__WEBPACK_IMPORTED_MODULE_2__["flyDown"])()
+            ]
         }),
         __metadata("design:paramtypes", [_services_dish_service__WEBPACK_IMPORTED_MODULE_1__["DishService"]])
     ], MenuComponent);
@@ -1301,13 +1419,13 @@ var DishService = /** @class */ (function () {
         return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_shared_dishes__WEBPACK_IMPORTED_MODULE_3__["DISHES"]).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["delay"])(2000));
     };
     DishService.prototype.getDish = function (id) {
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_shared_dishes__WEBPACK_IMPORTED_MODULE_3__["DISHES"].filter(function (dish) { return (dish.id === id); })[0]);
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_shared_dishes__WEBPACK_IMPORTED_MODULE_3__["DISHES"].filter(function (dish) { return (dish.id === id); })[0]).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["delay"])(500));
     };
     DishService.prototype.getFeaturedDish = function () {
         return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_shared_dishes__WEBPACK_IMPORTED_MODULE_3__["DISHES"].filter(function (dish) { return dish.featured; })[0]).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["delay"])(2000));
     };
     DishService.prototype.getDishIds = function () {
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_shared_dishes__WEBPACK_IMPORTED_MODULE_3__["DISHES"].map(function (dish) { return dish.id; }));
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_shared_dishes__WEBPACK_IMPORTED_MODULE_3__["DISHES"].map(function (dish) { return dish.id; })).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["delay"])(500));
     };
     DishService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({

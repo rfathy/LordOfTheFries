@@ -1,13 +1,18 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+import { flyIn } from '../animations/app.animation';
 
 import { Feedback, ContactType } from '../shared/feedback';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss']
+  styleUrls: ['./contact.component.scss'],
+  //trigger name visibilty takes state with style and transformation
+  animations: [
+  	flyIn()
+  ]
 })
 export class ContactComponent implements OnInit {
 
