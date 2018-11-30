@@ -12,7 +12,6 @@ mat-slider {
 }
 
 .padded{
-    padding: 20px 80px 30px 80px;
     .padded{
     	padding: 20px 0;
     }
@@ -48,7 +47,6 @@ mat-slider {
 			}
 		}
 		.actions{
-			margin-top: 25px;
 			.mat-button{
 				background: #e8e7b9;
 			    font-weight: bold;
@@ -60,6 +58,7 @@ mat-slider {
 			}
 		}
 		.details{
+			width: 100%;
 			.mat-list{
 				mat-list-item{
 					height: auto;
@@ -67,7 +66,7 @@ mat-slider {
 				}
 			}
 			p{
-				margin-top: 0;
+			    margin-top: 15px;
 			}
 			.commentBody{
 			    background: #e8e7b9;

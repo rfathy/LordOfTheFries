@@ -54,7 +54,7 @@ import { MapComponent } from './map/map.component';
     LoginComponent,
     BannerComponent,
     BannerInnerComponent,
-    MapComponent
+    MapComponent,
   ],
   imports: [
     BrowserModule,
